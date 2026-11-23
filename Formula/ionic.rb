@@ -1,10 +1,13 @@
 class Ionic < Formula
   desc "Statically-typed compiled language for data science and AI workloads"
   homepage "https://github.com/Psipheron/Ionic-Compiler"
-  # No leading `v`: Homebrew's audit forbids it, and Version.new("v0.3.1") is
-  # not equal to Version.new("0.3.1"), so the keg would be named `v0.3.1` and
-  # comparisons against a `v`-less version would be wrong. The release *URL*
-  # keeps the tag verbatim — only this line is stripped.
+  # No leading `v` here: Homebrew's audit forbids it (rubocops/version.rb) and
+  # Version.new("v0.3.1") != Version.new("0.3.1"), so the keg would be named
+  # `v0.3.1`.
+  #
+  # The tag *does* have the `v`, so the URL below cannot interpolate `version`
+  # directly or it would ask for .../download/0.3.1/ionic-0.3.1-... and 404.
+  # The prefix is re-added explicitly.
   version "0.3.1"
   license "MIT"
 
