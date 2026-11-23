@@ -1,7 +1,11 @@
 class Ionic < Formula
   desc "Statically-typed compiled language for data science and AI workloads"
   homepage "https://github.com/Psipheron/Ionic-Compiler"
-  version "v0.3.1"
+  # No leading `v`: Homebrew's audit forbids it, and Version.new("v0.3.1") is
+  # not equal to Version.new("0.3.1"), so the keg would be named `v0.3.1` and
+  # comparisons against a `v`-less version would be wrong. The release *URL*
+  # keeps the tag verbatim — only this line is stripped.
+  version "0.3.1"
   license "MIT"
 
   # One architecture. The release workflow builds exactly
